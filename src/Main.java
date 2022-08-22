@@ -10,17 +10,15 @@ public class Main {
         employees[4] = new Employee("Ivan Ivanov", 5, 10000.0);
         employees[5] = new Employee("Ivan Ivanov", 1, 50000.0);
         printFullNameAllEmployee();
-
     }
-    public static void printAllEmployee(){
-        for (int i = 0; i < employees.length; i++) {
-            System.out.println(employees[i]);
 
+    public static void printAllEmployee() {
+        for (Employee employee : employees) {
+            System.out.println(employee);
         }
-
     }
 
-    public static double getAndCalculateSalarySum(){
+    public static double getAndCalculateSalarySum() {
         double sum = 0;
         for (Employee employee : employees) {
             if (employee != null) {
@@ -30,7 +28,7 @@ public class Main {
         return sum;
     }
 
-    public static Employee getEmployeeMinSalary(){
+    public static Employee getEmployeeMinSalary() {
         double minSalary = -1;
         Employee minSalaryEmp = null;
         int index = 0;
@@ -42,21 +40,19 @@ public class Main {
                 break;
             }
         }
-
-
         for (int i = index; i < employees.length; i++) {
             if (employees[i] != null) {
 
-            if (minSalary > employees[i].getSalary()) {
-                minSalary = employees[i].getSalary();
-                minSalaryEmp = employees[i];
-            }
+                if (minSalary > employees[i].getSalary()) {
+                    minSalary = employees[i].getSalary();
+                    minSalaryEmp = employees[i];
+                }
             }
         }
         return minSalaryEmp;
     }
 
-    public static Employee getEmployeeMaxSalary(){
+    public static Employee getEmployeeMaxSalary() {
         double maxSalary = -1;
         Employee maxSalaryEmp = null;
         int index = 0;
@@ -68,8 +64,6 @@ public class Main {
                 break;
             }
         }
-
-
         for (int i = index; i < employees.length; i++) {
             if (employees[i] != null) {
 
@@ -83,20 +77,18 @@ public class Main {
     }
 
     public static double getCalculateAverageSalary() {
-        double sumSalaryAllEmpl = getAndCalculateSalarySum();
         if (employees.length != 0) {
-            return sumSalaryAllEmpl / employees.length;
+            return getAndCalculateSalarySum() / employees.length;
         } else {
             return 0;
         }
     }
 
     public static void printFullNameAllEmployee() {
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null) {
-                System.out.println(employees[i].getFullName());
+        for (Employee employee : employees) {
+            if (employee != null) {
+                System.out.println(employee.getFullName());
             }
-
         }
     }
 }

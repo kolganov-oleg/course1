@@ -1,5 +1,4 @@
 public class Employee {
-
     private final int id;
     private String fullName;
     private int department;
@@ -11,7 +10,6 @@ public class Employee {
         this.department = department;
         this.salary = salary;
         id = ++counter;
-
     }
 
     @Override
@@ -22,7 +20,6 @@ public class Employee {
                 ", department = " + department +
                 ", salary = " + salary;
     }
-
 
     public int getId() {
         return id;
